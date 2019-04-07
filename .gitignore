@@ -9,3 +9,6 @@ seaborn.egg-info/
 cover/
 .idea
 .pytest_cache/
+
+dataAnalysis/\.ftpconfig
+.vscode/
