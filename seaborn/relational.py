@@ -715,7 +715,7 @@ class _LinePlotter(_RelationalPlotter):
                                index=est.index,
                                columns=["low", "high"]).stack()
         elif ci == "sem":
-            sem = 1.96 * grouped.sem()
+            sem = grouped.sem()
             cis = pd.DataFrame(np.c_[est - sem, est + sem],
                                index=est.index,
                                columns=["low", "high"]).stack()

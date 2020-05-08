@@ -110,7 +110,7 @@ class Grid(object):
             right = 1 - self._space_needed
 
             # Place the subplot axes to give space for the legend
-            self.fig.subplots_adjust(right=right)
+            # self.fig.subplots_adjust(right=right)
 
         else:
             # Draw a legend in the first axis
@@ -372,7 +372,8 @@ class FacetGrid(Grid):
         self._not_na = not_na
 
         # Make the axes look good
-        fig.tight_layout()
+        # if not plt.rcParams['figure.constrained_layout.use']:
+        #     fig.tight_layout()
         if despine:
             self.despine()
 
@@ -845,7 +846,8 @@ class FacetGrid(Grid):
         """Finalize the annotations and layout."""
         self.set_axis_labels(*axlabels)
         self.set_titles()
-        self.fig.tight_layout()
+        # if not plt.rcParams['figure.constrained_layout.use']:
+        #     self.fig.tight_layout()
 
     def facet_axis(self, row_i, col_j):
         """Make the axis identified by these indices active and return it."""
@@ -1303,7 +1305,8 @@ class PairGrid(Grid):
         # Make the plot look nice
         if despine:
             utils.despine(fig=fig)
-        fig.tight_layout()
+        # if not plt.rcParams['figure.constrained_layout.use']:
+        #     fig.tight_layout()
 
     def map(self, func, **kwargs):
         """Plot with the same function in every subplot.
@@ -1738,8 +1741,9 @@ class JointGrid(object):
         utils.despine(f)
         utils.despine(ax=ax_marg_x, left=True)
         utils.despine(ax=ax_marg_y, bottom=True)
-        f.tight_layout()
-        f.subplots_adjust(hspace=space, wspace=space)
+        # if not plt.rcParams['figure.constrained_layout.use']:
+        #     f.tight_layout()
+        #     f.subplots_adjust(hspace=space, wspace=space)
 
     def plot(self, joint_func, marginal_func, annot_func=None):
         """Shortcut to draw the full plot.
